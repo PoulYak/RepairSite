@@ -1,7 +1,24 @@
+*
+	box-sizing: border-box
 body
 	font-family: sans-serif
 img
 	max-width: 100%
+
+.section
+	padding: 90px 0
+	&-title
+		display: block
+		font-size: 24px
+		 /* +bold */	
+	&-subtitle
+		display: block
+		font-size: 16px
+.input
+	border: 1px solid $border-input
+	padding: 20px 26px
+	font-size: 15px
+	border-radius: 10px
 .container
 	width: 1170px
 	margin: auto
@@ -19,3 +36,7 @@ img
 	background-color: $main-color
 	border: none
 	padding: 18px 30px
+	&:hover
+		background-color: lighten($main-color, 10%)
+		cursor: pointer
+
