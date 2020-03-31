@@ -9,14 +9,15 @@
 <link rel="stylesheet" href="css/animate.css">
 	
 	<title>Ремонт Квартир</title>
+
+</head>
+<body>
 <!-- Yandex.Metrika counter -->
 <script
 	type="text/javascript"> (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym"); ym(61477093, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true, trackHash: true }); </script>
 <noscript>
 	<div><img src="https://mc.yandex.ru/watch/61477093" style="position:absolute; left:-9999px;" alt="" /></div>
 </noscript> <!-- /Yandex.Metrika counter -->
-</head>
-<body>
 	<nav class="navbar">
 		<div class="container">
 			<div class="navbar-block">
@@ -30,7 +31,7 @@
 
 					</div>
 					<!-- /.navbar__contacts -->
-					<button id="button" onclick="ym(XXXXXX, 'reachGoal', 'button'); return true;" class="navbar__button button">Перезвоните мне</button>
+					<button id="button" onclick="ym(61477093, 'reachGoal', 'button'); return true;" class="navbar__button button">Перезвоните мне</button>
 				</div>
 				<!-- /.navbar__info -->
 			</div>
@@ -93,9 +94,9 @@
 				<span class="section-subtitle offer__subtitle">Оставьте заявку на разработку
 				бесплатного дизайн-проекта!</span>
 				<!-- /.section-subtitle -->
-				<form action="" class="form offer__form">
-					<input type="text" class="input offer__input" placeholder="Ваше имя">
-					<input type="tell" class="input offer__input" placeholder="Ваш телефон">
+				<form action="#" id="offer-form" class="form offer__form">
+					<input type="text" name="username" class="input offer__input" placeholder="Ваше имя">
+					<input type="tel" name="phone"  class="input offer__input" placeholder="Ваш телефон">
 					<button class="button offer__button">
 						Получить бесплатный дизайн-проект
 
@@ -391,6 +392,7 @@
 						<span class="form__subtitle">Для этого заполните форму ниже</span>
 						<form action="#" id="brif-form">
 							<input type="text" name='username'   class="brif__input input" placeholder="Ваше имя">
+							<input type="email" name='email' class="brif__input input email" placeholder="Ваш email">
 							<input type="tel" name='phone' class="brif__input input phone"  placeholder="Ваш телефон">
 							<button class="button brif__button">Рассчитать стоимость</button>
 							<span class="form__description">Мы перезвоним Вам в течение 60 секунд
@@ -460,9 +462,19 @@
 	<div id="modal" class="modal">
 		<div class="modal-dialog">
 			<button id="close" class="modal-dialog__close">&times;</button>
-			<h4 class="modal-dialog__title">
-				Всплывающее окно
-			</h4>
+			
+				<h4 class="modal-dialog__title section-title">
+					Заполните форму
+				</h4>
+				<span class="modal-dialog__subtitle section-subtitle">Мы вам перезвоним в течении для</span>
+			<div class="modal-block">
+				<form action="#" id='modal-form' class="modal-form">
+					<input type="text" name="username" class="input modal__input" placeholder="Ваше имя">
+					<input type="tel" name="phone" class="input modal__input" placeholder="Ваш телефончик">
+					<button class="button modal__button">Отправить заявку</button>
+				</form>
+			</div>
+			
 			
 			
 		<!-- /.modal-dialog -->
@@ -487,14 +499,61 @@
 				required: true,
 				minlength: 2
 					},
-				phone: 'required'
+				phone: 'required',
+				email: {
+						required: true,
+						email: true
+					},
 				},
 				messages:{
 					username: {
 						required: "Укажите имя",
 						minlength: jQuery.validator.format('Oсталось символов: 1')
 						},
-					phone:'Укажите ваш телефон'
+					phone:'Укажите ваш телефон',
+					email: 'Укажите верный email'
+				}
+			});
+			$('#modal-form').validate({
+				rules: {
+					username: {
+						required: true,
+						minlength: 2
+					},
+					phone: 'required',
+					email: {
+						required: true,
+						email: true
+					},
+				},
+				messages: {
+					username: {
+						required: "Укажите имя",
+						minlength: jQuery.validator.format('Oсталось символов: 1')
+					},
+					phone: 'Укажите ваш телефон',
+					email: 'Укажите верный email'
+				}
+			});
+			$('#offer-form').validate({
+				rules: {
+					username: {
+						required: true,
+						minlength: 2
+					},
+					phone: 'required',
+					email: {
+						required: true,
+						email: true
+					},
+				},
+				messages: {
+					username: {
+						required: "Укажите имя",
+						minlength: jQuery.validator.format('Oсталось символов: 1')
+					},
+					phone: 'Укажите ваш телефон',
+					email: 'Укажите верный email'
 				}
 			});
 
