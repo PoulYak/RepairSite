@@ -1,2 +1,2 @@
 # RepairSite
-[Site](https://poulyak.github.io/testsite/src/) for studing frontend
+[Site](https://poulyak.github.io/RepairSite/src/) for studing frontend
